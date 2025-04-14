@@ -1,7 +1,7 @@
 #include <math.h>
 
 // ─────────────────────────────────────────────────────────────
-// 📌 Constants and Configuration
+// Constants and Configuration
 // ─────────────────────────────────────────────────────────────
 const int B = 4250;
 const long R0 = 100000L;
@@ -33,20 +33,20 @@ int idleCycleCount = 0;
 #define debug Serial
 
 // ─────────────────────────────────────────────────────────────
-// 🔧 Setup
+// Setup
 // ─────────────────────────────────────────────────────────────
 void setup() {
   debug.begin(9600);
   while (!debug);
 
   debug.println(F("--------------------------------------------------------------"));
-  debug.println(F("📊 Adaptive Temperature Monitoring System - Serial Output"));
+  debug.println(F("Adaptive Temperature Monitoring System - Serial Output"));
   debug.println(F("--------------------------------------------------------------"));
   debug.println(F("Time (s)\tTemp (°C)\tFreq (Hz)\tMagnitude"));
 }
 
 // ─────────────────────────────────────────────────────────────
-// 🔁 Main Loop
+// Main Loop
 // ─────────────────────────────────────────────────────────────
 void loop() {
   collect_temperature_data();
@@ -63,11 +63,11 @@ void loop() {
   // Summary log
   debug.println();
   debug.println(F("--------------------------------------------------------------"));
-  debug.println(F("🔄 Cycle Summary"));
-  debug.print(F("📈 Predicted Variation: ")); debug.print(predictedVariation, 2); debug.println(F(" °C"));
-  debug.print(F("🎯 Dominant Frequency : ")); debug.print(dominantFreq, 2); debug.println(F(" Hz"));
-  debug.print(F("📏 New Sampling Rate  : ")); debug.print(samplingRateHz, 2); debug.println(F(" Hz"));
-  debug.print(F("⚡ Power Mode         : "));
+  debug.println(F("Cycle Summary"));
+  debug.print(F("Predicted Variation: ")); debug.print(predictedVariation, 2); debug.println(F(" °C"));
+  debug.print(F("Dominant Frequency : ")); debug.print(dominantFreq, 2); debug.println(F(" Hz"));
+  debug.print(F("New Sampling Rate  : ")); debug.print(samplingRateHz, 2); debug.println(F(" Hz"));
+  debug.print(F("Power Mode         : "));
   if (currentMode == ACTIVE) debug.println(F("ACTIVE"));
   else if (currentMode == IDLE) debug.println(F("IDLE"));
   else debug.println(F("POWER DOWN"));
